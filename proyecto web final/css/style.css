@@ -1,0 +1,388 @@
+:root {
+    --primary-color: #dc3545;
+    --primary-dark: #b02a37;
+    --secondary-color: #212529;
+    --light-color: #ffffff;
+    --background-color: #f8f9fa;
+    --text-color: #212529;
+    --font-stack: 'Roboto', 'Arial', sans-serif;
+    --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+}
+
+
+/* --- Base y Estructura del Body --- */
+
+body {
+    font-family: var(--font-stack);
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+/* Títulos más impactantes */
+
+h1,
+h2,
+h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+
+/* --- Header y Navegación Global (index, inventario, contacto) --- */
+
+.main-header {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    padding: 1.5rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 25px;
+}
+
+.main-nav a {
+    color: var(--light-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--primary-color);
+}
+
+.main-nav i {
+    margin-right: 8px;
+}
+
+
+/* Estilo específico para el contador del carrito */
+
+#cart-count {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    border-radius: 50%;
+    padding: 2px 7px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+
+/* --- Componentes de Tarjeta de Producto (Product Card) --- */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding-top: 20px;
+}
+
+.product-card {
+    background-color: var(--light-color);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    /* Sombra al pasar el mouse */
+}
+
+
+/* REGLAS AÑADIDAS PARA EL TAMAÑO DE LA IMAGEN  */
+
+.product-card figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+    margin: 0 0 15px 0;
+    border-bottom: 1px solid #eee;
+    /* Línea de separación sutil */
+    padding-bottom: 15px;
+}
+
+.product-card .product-image {
+    max-height: 180px;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: var(--border-radius);
+}
+
+
+/* ----------------------------------------------------------------- */
+
+.product-description {
+    color: #6c757d;
+    /* Gris para el texto secundario */
+    font-size: 0.95rem;
+    margin: 10px 0;
+    height: 40px;
+    /* Altura fija para evitar saltos en el diseño de la grilla */
+    overflow: hidden;
+}
+
+.product-price {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 15px 0;
+}
+
+
+/* --- Botones --- */
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.1s;
+    font-size: 1rem;
+    text-decoration: none;
+    /* Para usarlo en enlaces también */
+    display: inline-block;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.secondary-btn {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    margin-left: 10px;
+}
+
+.secondary-btn:hover {
+    background-color: #3e444a;
+    transform: translateY(-1px);
+}
+
+.add-to-cart-btn {
+    margin-top: auto;
+    /* Empuja el botón hacia abajo en la tarjeta */
+}
+
+
+/* --- Sección de Controles (Inventario) --- */
+
+.controls-container {
+    display: flex;
+    gap: 30px;
+    padding: 20px 0;
+    border-bottom: 2px solid var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.search-group,
+.filter-group {
+    flex: 1;
+}
+
+.search-group label,
+.filter-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--secondary-color);
+}
+
+#search,
+#category-filter {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+
+/* --- Footer --- */
+
+.main-footer {
+    background-color: var(--secondary-color);
+    color: #adb5bd;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 40px;
+    border-top: 4px solid var(--primary-color);
+    /* Barra roja distintiva */
+}
+
+
+/* --- ESTILOS DE PÁGINA ESPECÍFICOS (Carrito y Contacto) --- */
+
+
+/* Contenedor centralizado para Carrito/Contacto/Login */
+
+.cart-page-container,
+.contact-form-container,
+.account-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: var(--light-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+}
+
+.cart-page-container h1,
+.contact-form-container h1,
+.account-container h1 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+/* Estilos de Formulario (Contacto y Login) */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--secondary-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group textarea,
+.auth-form-section input[type="text"],
+.auth-form-section input[type="email"],
+.auth-form-section input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25);
+}
+
+
+/* Botones de formulario más grandes y rojos */
+
+.contact-form-container button[type="submit"],
+.auth-form-section button[type="submit"] {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 15px;
+}
+
+
+/* Estilos de Carrito */
+
+#cart-list .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+#cart-list .cart-item-details {
+    flex-grow: 1;
+}
+
+#cart-list .cart-item h4 {
+    margin: 0;
+    color: var(--secondary-color);
+}
+
+#cart-list .cart-item p {
+    margin: 5px 0;
+    color: #6c757d;
+}
+
+#cart-list .cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.empty-cart-message {
+    text-align: center;
+    font-style: italic;
+    color: #6c757d;
+    padding: 30px;
+    border: 1px dashed #ced4da;
+    border-radius: var(--border-radius);
+}
+
+#total-section {
+    border-top: 2px solid var(--primary-color);
+    padding-top: 20px;
+    margin-top: 30px;
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#cart-total {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
